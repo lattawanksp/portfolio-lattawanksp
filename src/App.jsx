@@ -1,18 +1,18 @@
-import { startTransition, useState } from "react";
-import LeftSidebar from "./components/LeftSidebar";
-import Navbar from "./components/Navbar";
-import SectionPanel from "./components/SectionPanel";
-import FooterBar from "./components/FooterBar";
-import { sections } from "./data/SectionPanelData";
+import { startTransition, useState } from 'react'
+import LeftSidebar from './components/LeftSidebar'
+import Navbar from './components/Navbar'
+import SectionPanel from './components/SectionPanel'
+import FooterBar from './components/FooterBar'
+import { sections } from './data/SectionPanelData'
 
 function App() {
-  const [activeSection, setActiveSection] = useState("welcome");
-  const currentSection =
-    sections.find((section) => section.id === activeSection) ?? null;
+  const [activeSection, setActiveSection] = useState('welcome')
+  const [welcomeStarted, setWelcomeStarted] = useState(false)
 
-  const openSection = (sectionId) =>
-    startTransition(() => setActiveSection(sectionId));
-  const resetSection = () => setActiveSection(null);
+  const currentSection = sections.find((section) => section.id === activeSection) ?? null
+
+  const openSection = (sectionId) => startTransition(() => setActiveSection(sectionId))
+  const resetSection = () => setActiveSection(null)
 
   return (
     <main className="relative min-h-screen overflow-hidden px-4 py-4 text-stone-700 sm:px-6 lg:px-8">
@@ -23,21 +23,22 @@ function App() {
         <LeftSidebar />
 
         <section className="flex min-h-0 flex-col gap-5">
-          <Navbar
-            activeSection={activeSection}
-            onOpenSection={openSection}
-            onReset={resetSection}
-          />
+          <Navbar activeSection={activeSection} onOpenSection={openSection} onReset={resetSection} />
 
           <div className="min-h-0 flex-1">
-            <SectionPanel section={currentSection} />
+            <SectionPanel
+              section={currentSection}
+              onOpenSection={openSection}
+              welcomeStarted={welcomeStarted}
+              onStartWelcome={() => setWelcomeStarted(true)}
+            />
           </div>
 
           <FooterBar />
         </section>
       </div>
     </main>
-  );
+  )
 }
 
-export default App;
+export default App
