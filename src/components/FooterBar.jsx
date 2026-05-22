@@ -1,5 +1,5 @@
-import { Sparkles } from 'lucide-react'
-import { profileLinks } from '../data/portfolioData'
+import { Sparkles } from "lucide-react";
+import { profileLinks } from "../data/SectionPanelData";
 
 function FooterBar() {
   return (
@@ -19,7 +19,9 @@ function FooterBar() {
             className="inline-flex items-center gap-2 hover:text-[#4f3b27]"
           >
             <link.icon className="h-4 w-4 text-[#8d6b49]" />
-            <span>{link.href.replace('mailto:', '').replace('https://', '')}</span>
+            <span>
+              {link.href.replace("mailto:", "").replace("https://", "")}
+            </span>
           </a>
         ))}
       </div>
@@ -28,7 +30,7 @@ function FooterBar() {
         React + Tailwind
       </div>
     </footer>
-  )
+  );
 }
 
-export default FooterBar
+export default FooterBar;

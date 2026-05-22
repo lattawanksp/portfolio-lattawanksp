@@ -1,4 +1,4 @@
-import ProfilePreviewCard from './ProfilePreviewCard'
+import ProfilePreviewCard from "./00_ProfilePreviewCard.jsx";
 
 function LeftSidebar() {
   return (
@@ -9,7 +9,7 @@ function LeftSidebar() {
         </div>
       </div>
     </aside>
-  )
+  );
 }
 
-export default LeftSidebar
+export default LeftSidebar;
