@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fbf4e8;
+  --bg-deep: #f1e0c7;
+  --paper: rgba(255, 249, 240, 0.82);
+  --paper-strong: rgba(255, 252, 246, 0.94);
+  --line: #b99f7b;
+  --ink: #4f3b27;
+  --muted: #7d6751;
+  --accent: #8d6b49;
+  --soft-green: #98a16d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(152, 161, 109, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--bg), #f8eddc 52%, var(--bg-deep));
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.paper-panel {
+  background: linear-gradient(180deg, var(--paper-strong), var(--paper));
+  border: 1.5px solid color-mix(in srgb, var(--line) 88%, white 12%);
+  border-radius: 2rem;
+  box-shadow:
+    0 18px 40px rgba(154, 127, 92, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+}
