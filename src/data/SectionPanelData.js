@@ -1,6 +1,7 @@
 import {
   BookOpen,
   Code2,
+  FlaskConical,
   FolderKanban,
   Globe,
   Link2,
@@ -42,6 +43,15 @@ export const sections = [
       "A flexible grid for product case studies, admin tools, client work, or experiments you want to highlight.",
   },
   {
+    id: "playground",
+    label: "Playground",
+    icon: FlaskConical,
+    title: "Creative Playground",
+    eyebrow: "Experiments and motion",
+    summary:
+      "A space for UI experiments, animation studies, interaction tests, and ideas that are still evolving.",
+  },
+  {
     id: "contact",
     label: "Contact",
     icon: Mail,
@@ -53,14 +63,54 @@ export const sections = [
 ];
 
 export const stackItems = [
-  "React",
-  "Tailwind CSS",
-  "TypeScript",
-  "Vite",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Figma",
+  {
+    name: "React",
+    icon: "react",
+    category: "Frontend",
+    description: "Component-driven interfaces and interactive product flows.",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "tailwind",
+    category: "Frontend",
+    description: "Fast styling workflow for cozy layouts and clean UI systems.",
+  },
+  {
+    name: "TypeScript",
+    icon: "typescript",
+    category: "Frontend",
+    description: "Type-safe development for predictable and maintainable code.",
+  },
+  {
+    name: "Vite",
+    icon: "vite",
+    category: "Frontend",
+    description: "Quick local development and modern build tooling.",
+  },
+  {
+    name: "Node.js",
+    icon: "node",
+    category: "Backend",
+    description: "Server-side JavaScript for APIs and practical app logic.",
+  },
+  {
+    name: "Express",
+    icon: "express",
+    category: "Backend",
+    description: "Lightweight backend routing for web apps and services.",
+  },
+  {
+    name: "MongoDB",
+    icon: "mongodb",
+    category: "Backend",
+    description: "Flexible NoSQL database structure for product features in progress.",
+  },
+  {
+    name: "Figma",
+    icon: "figma",
+    category: "Design",
+    description: "Mockups, UI thinking, and handoff-ready screen design.",
+  },
 ];
 
 export const projectCards = [

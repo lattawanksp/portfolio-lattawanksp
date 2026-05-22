@@ -15,14 +15,14 @@ function App() {
   const resetSection = () => setActiveSection(null)
 
   return (
-    <main className="relative min-h-screen overflow-hidden px-4 py-4 text-stone-700 sm:px-6 lg:px-8">
+    <main className="relative h-screen overflow-hidden px-4 py-4 text-stone-700 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-[url('/references/bg-img.png')] bg-cover bg-center bg-no-repeat" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.72),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(189,171,120,0.18),transparent_20%),rgba(252,246,236,0.48)]" />
 
-      <div className="relative mx-auto grid min-h-[calc(100vh-2rem)] max-w-550 gap-6 lg:grid-cols-[20%_80%]">
+      <div className="relative mx-auto grid h-[calc(100vh-2rem)] max-w-550 gap-6 lg:grid-cols-[20%_80%]">
         <LeftSidebar />
 
-        <section className="flex min-h-0 flex-col gap-5">
+        <section className="flex min-h-0 flex-col gap-5 overflow-hidden">
           <Navbar activeSection={activeSection} onOpenSection={openSection} onReset={resetSection} />
 
           <div className="min-h-0 flex-1">
