@@ -13,8 +13,8 @@ const replyMessages = [
     Hi ! Welcome to <span className="font-bold">my portfolio</span>
   </>,
   <>
-    My name is <span className="font-bold text-[#b87d4b]">Lin</span>, I&apos;m
-    an aspiring Full-Stack Developer
+    My name is <span className="font-bold text-[#b87d4b]">Lin</span>, I&apos;m a{" "}
+    <span className="font-bold">Junior Software Developer</span>
   </>,
   <>
     Thank you for taking the time to visit. You can navigate through the{" "}
