@@ -95,6 +95,11 @@ img {
   animation: aboutSectionPop 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+body.stack-dragging {
+  user-select: none;
+  cursor: grabbing;
+}
+
 @keyframes aboutSectionPop {
   0% {
     transform: translateY(12px) scale(0.985);
