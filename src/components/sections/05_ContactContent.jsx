@@ -1,4 +1,4 @@
-import { profileLinks } from "../../data/SectionPanelData";
+import { profileLinks } from "../../data/Data";
 
 function ContactContent() {
   return (

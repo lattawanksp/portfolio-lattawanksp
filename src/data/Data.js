@@ -5,9 +5,9 @@ import {
   FlaskConical,
   FolderKanban,
   Globe,
+  Hand,
   Link2,
   Mail,
-  Hand,
 } from "lucide-react";
 
 export const sections = [
@@ -116,23 +116,32 @@ export const stackItems = [
 
 export const projectCards = [
   {
-    title: "Cafe Admin Dashboard",
+    title: "Colmar Academy - Landing Page",
     description:
-      "Manage menu items, track orders, and monitor sales inside a warm, lightweight admin portal.",
-    tags: ["React", "Tailwind", "Charts"],
+      "A responsive landing page for a fictional coding academy. Built from a wireframe, with sections for courses, events, and thesis exhibits.",
+    tags: ["HTML", "Tailwind CSS", "Responsive Design"],
+    imageSrc: "/public/references/project-img/colmar.png",
+    githubHref: "https://github.com/lattawanksp/13-lin-colmar",
+    demoHref: "https://13-lin-colmar.vercel.app/",
   },
-  {
-    title: "Chatify Workspace",
-    description:
-      "A messaging experience for teams with channels, presence, and a neat content-first layout.",
-    tags: ["Socket", "Node", "MongoDB"],
-  },
-  {
-    title: "NoteNest",
-    description:
-      "A compact writing app for saving quick thoughts, checklists, and personal knowledge snippets.",
-    tags: ["Vite", "Local DB", "UX"],
-  },
+  // {
+  //   title: "Chatify Workspace",
+  //   description:
+  //     "A messaging experience for teams with channels, presence, and a neat content-first layout.",
+  //   tags: ["Socket", "Node", "MongoDB"],
+  //   imageSrc: "/references/portfolio-reference-1.png",
+  //   githubHref: "https://github.com/yourname",
+  //   demoHref: "https://your-project-demo.com",
+  // },
+  // {
+  //   title: "NoteNest",
+  //   description:
+  //     "A compact writing app for saving quick thoughts, checklists, and personal knowledge snippets.",
+  //   tags: ["Vite", "Local DB", "UX"],
+  //   imageSrc: "/references/portfolio-reference-2.png",
+  //   githubHref: "https://github.com/yourname",
+  //   demoHref: "https://your-project-demo.com",
+  // },
 ];
 
 export const profileLinks = [

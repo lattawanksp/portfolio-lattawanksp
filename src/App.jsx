@@ -3,7 +3,7 @@ import LeftSidebar from "./components/LeftSidebar";
 import Navbar from "./components/Navbar";
 import SectionPanel from "./components/SectionPanel";
 import FooterBar from "./components/FooterBar";
-import { sections } from "./data/SectionPanelData";
+import { sections } from "./data/Data";
 
 function App() {
   const [activeSection, setActiveSection] = useState("welcome");

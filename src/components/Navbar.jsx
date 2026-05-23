@@ -1,5 +1,5 @@
 import { Home } from "lucide-react";
-import { sections } from "../data/SectionPanelData";
+import { sections } from "../data/Data";
 
 function Navbar({ activeSection, onOpenSection, onReset }) {
   return (
