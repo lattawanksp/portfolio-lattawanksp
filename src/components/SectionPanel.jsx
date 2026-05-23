@@ -2,9 +2,9 @@ import WelcomeContent from "./sections/01_WelcomeContent";
 import AboutContent from "./sections/02_AboutContent";
 import StackContent from "./sections/03_StackContent";
 import ProjectsContent from "./sections/04_ProjectsContent";
-import PlaygroundContent from "./sections/06_PlaygroundContent";
-import CertificateContent from "./sections/07_CertificateContent";
-import ContactContent from "./sections/05_ContactContent";
+import PlaygroundContent from "./sections/05_PlaygroundContent";
+import CertificateContent from "./sections/06_CertificateContent";
+import ContactContent from "./sections/07_ContactContent";
 
 const sectionComponents = {
   welcome: WelcomeContent,

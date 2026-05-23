@@ -259,31 +259,21 @@ function StackContent() {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
-        {stackGroups.map((group, groupIndex) => {
+        {stackGroups.map((group) => {
           const GroupIcon = group.icon;
 
           return (
             <section
               key={group.id}
               className="stack-window rounded-[1.8rem] border border-[#d8c0a0] bg-white/80 p-4 shadow-[0_14px_28px_rgba(120,92,54,0.08)] transition-all duration-300 hover:border-[#8ec5ff] hover:bg-[#fbf2e4]"
-              style={{
-                animation:
-                  "stackCardIn 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both",
-                animationDelay: `${groupIndex * 70}ms`,
-              }}
             >
               <div className="mb-3 flex items-center gap-3 border-b border-[#ead7bc] pb-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[#d8c0a0] bg-[#fff7ea] text-[#8d6b49]">
                   <GroupIcon className="h-5 w-5" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#4f3b27]">
-                    {group.title}
-                  </h3>
-                  <p className="text-xs uppercase tracking-[0.2em] text-[#a38762]">
-                    drag inside the box
-                  </p>
-                </div>
+                <h3 className="text-lg font-semibold text-[#4f3b27]">
+                  {group.title}
+                </h3>
               </div>
 
               <div

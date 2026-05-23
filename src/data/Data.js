@@ -41,10 +41,10 @@ export const sections = [
   },
   {
     id: "playground",
-    label: "Mini project",
+    label: "Playground",
     icon: FlaskConical,
-    title: "Mini Project",
-    eyebrow: "Experiments and motion",
+    title: "Playground",
+    eyebrow: "Learning & exploration",
   },
   {
     id: "certificate",
@@ -114,7 +114,9 @@ export const stackItems = [
   },
 ];
 
-export const projectCards = [
+export const projectCards = [];
+
+export const playgroundCards = [
   {
     title: "Colmar Academy - Landing Page",
     description:
@@ -124,24 +126,6 @@ export const projectCards = [
     githubHref: "https://github.com/lattawanksp/13-lin-colmar",
     demoHref: "https://13-lin-colmar.vercel.app/",
   },
-  // {
-  //   title: "Chatify Workspace",
-  //   description:
-  //     "A messaging experience for teams with channels, presence, and a neat content-first layout.",
-  //   tags: ["Socket", "Node", "MongoDB"],
-  //   imageSrc: "/references/portfolio-reference-1.png",
-  //   githubHref: "https://github.com/yourname",
-  //   demoHref: "https://your-project-demo.com",
-  // },
-  // {
-  //   title: "NoteNest",
-  //   description:
-  //     "A compact writing app for saving quick thoughts, checklists, and personal knowledge snippets.",
-  //   tags: ["Vite", "Local DB", "UX"],
-  //   imageSrc: "/references/portfolio-reference-2.png",
-  //   githubHref: "https://github.com/yourname",
-  //   demoHref: "https://your-project-demo.com",
-  // },
 ];
 
 export const profileLinks = [
