@@ -1,4 +1,11 @@
-import { Sprout, Sparkles } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  GraduationCap,
+  HeartHandshake,
+  Languages,
+  Sprout,
+  Sparkles,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 
@@ -6,73 +13,47 @@ const aboutSections = [
   {
     id: "experience",
     label: "Experience",
-    intro:
-      "Work that shaped how I think about customers, products, and practical execution.",
     entries: [
       {
-        year: "2019 - Present",
-        title: "Small Business Owner · ICE PALETTE",
-        text: "Managed daily operations, optimized supply flow for 15+ rotating flavors, and learned how product decisions connect directly to customer behavior.",
+        year: "Mar 2026 - Jun 2026",
+        title: "Full-stack Web Development Bootcamp | Generation Thailand",
+        text: "Intensive Full-stack Development bootcamp with a focus on high-demand technologies and agile methodology.",
         bullets: [
-          "Turned sales patterns into better inventory planning and seasonal product choices.",
-          "Designed brand visuals and social assets with Adobe Photoshop and Canva.",
-          "Built a strong sense of ownership, adaptability, and business-minded problem solving.",
+          "Mastered MERN Stack (MongoDB, Express.js, React, Node.js) and version control using Git/GitHub.",
+          "Developed professional-grade web applications through Project-based Learning.",
         ],
       },
       {
-        year: "2015 - 2017",
-        title: "Animator · Animated Storyboard",
-        text: "Worked in animation production and strengthened timing, detail sensitivity, and visual communication through commercial character work.",
+        year: "Sep 2019 - Present",
+        title: "Small Business Owner | ICE PALETTE",
+        text: "Managed end-to-end shop operations, optimizing supply chain and inventory for 15+ rotating flavors based on sales data.",
         bullets: [
-          "Produced 3D character animation for advertising projects.",
-          "Adapted between Maya and 3ds Max depending on production needs.",
-          "Developed patience and precision that now carries into UI polish and frontend work.",
+          "Designed all brand identity and digital marketing assets using Adobe Photoshop and Canva to drive social engagement.",
         ],
       },
       {
-        year: "2026",
-        title: "Selected Development Projects",
-        text: "Began building full-stack and frontend-focused products where design thinking and implementation quality meet.",
-        bullets: [
-          "Created Make A Scoop as a polished e-commerce concept with React and Tailwind CSS.",
-          "Planned Creative Market with Agile thinking, Figma mockups, and responsive layouts.",
-          "Mapped product structure, reusable UI, and data ideas before implementation.",
-        ],
+        year: "Aug 2015 - Feb 2017",
+        title: "Animator | Animated Storyboard",
+        text: "Produced 3D character animations for advertising and mastered software transitions (Maya to 3ds Max) to meet project requirements.",
+        bullets: [],
       },
     ],
   },
   {
     id: "education",
     label: "Education",
-    intro:
-      "A blend of creative training and hands-on technical learning.",
     entries: [
       {
-        year: "2026",
-        title: "Full-stack Web Development Bootcamp · Generation Thailand",
-        text: "An intensive bootcamp focused on modern web development, agile workflow, and project-based implementation.",
-        bullets: [
-          "Practiced MERN stack development in a structured, collaborative environment.",
-          "Worked with React, Node.js, Express, MongoDB, Git, and GitHub.",
-          "Focused on building professional-grade web applications from concept to execution.",
-        ],
-      },
-      {
         year: "2011 - 2015",
-        title: "Bachelor of Science (Animation) · Chiang Mai University",
-        text: "Studied at the College of Arts, Media and Technology, where visual storytelling and creative direction became my foundation.",
-        bullets: [
-          "Learned composition, storytelling, pacing, and visual communication.",
-          "Built a strong eye for detail that now supports interface and layout work.",
-        ],
+        title: "Bachelor of Science (Animation)",
+        text: "College of Arts, Media and Technology, Chiang Mai University",
+        bullets: [],
       },
     ],
   },
   {
     id: "soft-skill",
     label: "Soft Skill",
-    intro:
-      "The strengths I rely on most when learning, building, and collaborating.",
     points: [
       "Problem-solving with a practical, user-centered mindset.",
       "Adaptability and continuous learning across frontend, backend, and design tools.",
@@ -84,8 +65,6 @@ const aboutSections = [
   {
     id: "language",
     label: "Language",
-    intro:
-      "Communication matters just as much as craft.",
     languages: [
       { name: "Thai", level: "Native speaker" },
       { name: "English", level: "Intermediate working proficiency" },
@@ -93,6 +72,13 @@ const aboutSections = [
     ],
   },
 ];
+
+const sectionIcons = {
+  experience: BriefcaseBusiness,
+  education: GraduationCap,
+  "soft-skill": HeartHandshake,
+  language: Languages,
+};
 
 function AboutContent() {
   const wrapperRef = useRef(null);
@@ -195,7 +181,9 @@ function AboutContent() {
                   : "text-[#a08463] hover:-translate-y-0.5 hover:text-[#4f3b27]"
               }`}
             >
-              <p className="text-base font-semibold sm:text-lg">{section.label}</p>
+              <p className="text-base font-semibold sm:text-lg">
+                {section.label}
+              </p>
             </div>
           );
         })}
@@ -249,9 +237,10 @@ function AboutContent() {
             </div>
           </aside>
 
-          <div className="space-y-16">
+          <div className="space-y-12">
             {aboutSections.map((section, index) => {
               const isActive = activeSection === section.id;
+              const SectionIcon = sectionIcons[section.id];
 
               return (
                 <div key={section.id}>
@@ -265,27 +254,28 @@ function AboutContent() {
                     }`}
                   >
                     <div className="max-w-2xl">
-                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#8d6b49]">
-                        {section.label}
-                      </p>
-                      <h3
-                        className={`mt-3 text-3xl font-semibold transition-colors duration-300 sm:text-[2.15rem] ${
+                      <div
+                        className={`text-3xl font-semibold transition-colors duration-300 sm:text-[2.15rem] ${
                           isActive ? "text-[#4f3b27]" : "text-[#745d44]"
                         }`}
                       >
-                        {section.label === "Soft Skill"
-                          ? "How I Work"
-                          : section.label === "Language"
-                            ? "Communication"
-                            : section.label}
-                      </h3>
-                      <p className="mt-4 max-w-xl text-base leading-8 text-[#7d6751] sm:text-[1.02rem]">
-                        {section.intro}
-                      </p>
+                        <div className="flex items-center gap-3">
+                          {SectionIcon ? (
+                            <SectionIcon className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />
+                          ) : null}
+                          <h3>
+                            {section.label === "Soft Skill"
+                              ? "Soft Skill"
+                              : section.label === "Language"
+                                ? "Language"
+                                : section.label}
+                          </h3>
+                        </div>
+                      </div>
                     </div>
 
                     {section.entries ? (
-                      <div className="mt-10 space-y-14 border-l border-[#e3d3bc] pl-6 sm:pl-8">
+                      <div className="mt-8 space-y-12 border-l border-[#e3d3bc] pl-6 sm:pl-8">
                         {section.entries.map((entry) => (
                           <article
                             key={entry.title}
@@ -298,11 +288,8 @@ function AboutContent() {
                             <h4 className="mt-2 text-xl font-semibold text-[#4f3b27] sm:text-[1.42rem]">
                               {entry.title}
                             </h4>
-                            <p className="mt-4 max-w-2xl text-base leading-8 text-[#7d6751] sm:text-[1.02rem]">
-                              {entry.text}
-                            </p>
-                            <ul className="mt-5 max-w-2xl space-y-3 text-base leading-8 text-[#7d6751] sm:text-[1.02rem]">
-                              {entry.bullets.map((bullet) => (
+                            <ul className="mt-4 max-w-2xl space-y-3 text-base leading-8 text-[#7d6751] sm:text-[1.02rem]">
+                              {[entry.text, ...entry.bullets].map((bullet) => (
                                 <li key={bullet} className="flex gap-3">
                                   <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#99a168]" />
                                   <span>{bullet}</span>
@@ -315,7 +302,7 @@ function AboutContent() {
                     ) : null}
 
                     {section.points ? (
-                      <div className="mt-8 grid max-w-3xl gap-x-8 gap-y-5 sm:grid-cols-2">
+                      <div className="mt-6 grid max-w-3xl gap-x-8 gap-y-5 sm:grid-cols-2">
                         {section.points.map((point) => (
                           <div
                             key={point}
@@ -328,17 +315,14 @@ function AboutContent() {
                     ) : null}
 
                     {section.languages ? (
-                      <div className="mt-8 max-w-2xl space-y-5">
-                        <p className="text-base leading-8 text-[#7d6751] sm:text-[1rem]">
-                          Thai / English / Japanese (JLPT N3)
-                        </p>
+                      <div className="mt-6 max-w-2xl space-y-5">
                         <div className="space-y-5">
                           {section.languages.map((language) => (
                             <div
                               key={language.name}
                               className="flex flex-col gap-2 border-b border-[#eee2d0] pb-4 transition-all duration-300 hover:border-[#8ec5ff] sm:flex-row sm:items-center sm:justify-between"
                             >
-                              <span className="text-lg font-semibold text-[#4f3b27] sm:text-xl">
+                              <span className="text-base text-[#8d6b49]">
                                 {language.name}
                               </span>
                               <span className="text-base text-[#8d6b49]">
@@ -352,8 +336,8 @@ function AboutContent() {
                   </section>
 
                   {index < aboutSections.length - 1 ? (
-                    <div className="my-10 flex items-center gap-4 sm:my-12">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#e5d4bd] to-[#ecdcc5]" />
+                    <div className="my-5 flex items-center gap-4 sm:my-6">
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#d9c0a0] to-[#e8d4b8]" />
                       <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e5d4bd] bg-white/70 text-[#b09068] shadow-[0_6px_14px_rgba(154,127,92,0.06)]">
                         {index % 2 === 0 ? (
                           <Sparkles className="h-4 w-4" />
@@ -361,7 +345,7 @@ function AboutContent() {
                           <Sprout className="h-4 w-4" />
                         )}
                       </div>
-                      <div className="h-px flex-1 bg-gradient-to-r from-[#ecdcc5] via-[#e5d4bd] to-transparent" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-[#e8d4b8] via-[#d9c0a0] to-transparent" />
                     </div>
                   ) : null}
                 </div>

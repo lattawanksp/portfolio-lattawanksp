@@ -34,10 +34,21 @@ const stackGroups = [
     title: "Programming",
     icon: AppWindow,
     items: [
-      { id: "javascript", label: "JavaScript", icon: siJavascript, color: "#F7DF1E" },
+      {
+        id: "javascript",
+        label: "JavaScript",
+        icon: siJavascript,
+        color: "#F7DF1E",
+      },
       { id: "html5", label: "HTML5", icon: siHtml5, color: "#E34F26" },
       { id: "css3", label: "CSS3", icon: siCss, color: "#1572B6" },
-      { id: "sql", label: "SQL", icon: Database, color: "#3B82F6", isLucide: true },
+      {
+        id: "sql",
+        label: "SQL",
+        icon: Database,
+        color: "#3B82F6",
+        isLucide: true,
+      },
     ],
   },
   {
@@ -45,9 +56,20 @@ const stackGroups = [
     title: "Frontend",
     icon: LayoutTemplate,
     items: [
-      { id: "tailwindcss", label: "Tailwind CSS", icon: siTailwindcss, color: "#06B6D4" },
+      {
+        id: "tailwindcss",
+        label: "Tailwind CSS",
+        icon: siTailwindcss,
+        color: "#06B6D4",
+      },
       { id: "react", label: "React", icon: siReact, color: "#61DAFB" },
-      { id: "responsive-design", label: "Responsive", icon: LayoutTemplate, color: "#8B5CF6", isLucide: true },
+      {
+        id: "responsive-design",
+        label: "Responsive",
+        icon: LayoutTemplate,
+        color: "#8B5CF6",
+        isLucide: true,
+      },
     ],
   },
   {
@@ -57,7 +79,13 @@ const stackGroups = [
     items: [
       { id: "nodejs", label: "Node.js", icon: siNodedotjs, color: "#5FA04E" },
       { id: "express", label: "Express", icon: siExpress, color: "#1f1f1f" },
-      { id: "restful-apis", label: "RESTful APIs", icon: ServerCog, color: "#0F766E", isLucide: true },
+      {
+        id: "restful-apis",
+        label: "RESTful APIs",
+        icon: ServerCog,
+        color: "#0F766E",
+        isLucide: true,
+      },
     ],
   },
   {
@@ -66,7 +94,12 @@ const stackGroups = [
     icon: Database,
     items: [
       { id: "mongodb", label: "MongoDB", icon: siMongodb, color: "#47A248" },
-      { id: "postgresql", label: "PostgreSQL", icon: siPostgresql, color: "#4169E1" },
+      {
+        id: "postgresql",
+        label: "PostgreSQL",
+        icon: siPostgresql,
+        color: "#4169E1",
+      },
     ],
   },
   {
@@ -86,7 +119,13 @@ const stackGroups = [
     icon: SwatchBook,
     items: [
       { id: "figma", label: "Figma", icon: siFigma, color: "#F24E1E" },
-      { id: "adobe", label: "Adobe", icon: PenTool, color: "#E11D48", isLucide: true },
+      {
+        id: "adobe",
+        label: "Adobe",
+        icon: PenTool,
+        color: "#E11D48",
+        isLucide: true,
+      },
     ],
   },
 ];
@@ -219,17 +258,6 @@ function StackContent() {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-[1.75rem] border border-[#d8c0a0] bg-white/72 p-5 sm:p-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8d6b49]">
-          Desktop Stack Board
-        </p>
-        <p className="mt-3 text-base leading-8 text-[#7d6751] sm:text-lg">
-          Drag the icons around inside each category window. Every tool stays
-          inside its own workspace, like a mini desktop for the way I build and
-          design.
-        </p>
-      </div>
-
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         {stackGroups.map((group, groupIndex) => {
           const GroupIcon = group.icon;
@@ -239,7 +267,8 @@ function StackContent() {
               key={group.id}
               className="stack-window rounded-[1.8rem] border border-[#d8c0a0] bg-white/80 p-4 shadow-[0_14px_28px_rgba(120,92,54,0.08)] transition-all duration-300 hover:border-[#8ec5ff] hover:bg-[#fbf2e4]"
               style={{
-                animation: "stackCardIn 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both",
+                animation:
+                  "stackCardIn 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both",
                 animationDelay: `${groupIndex * 70}ms`,
               }}
             >
@@ -261,9 +290,9 @@ function StackContent() {
                 ref={(element) => {
                   boxRefs.current[group.id] = element;
                 }}
-                className="relative h-[17rem] overflow-hidden rounded-[1.4rem] border border-[#e4d1b4] bg-[linear-gradient(180deg,rgba(255,251,244,0.95),rgba(247,236,220,0.82))]"
+                className="relative h-68 overflow-hidden rounded-[1.4rem] border border-[#e4d1b4] bg-[linear-gradient(180deg,rgba(255,251,244,0.95),rgba(247,236,220,0.82))]"
               >
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(196,168,130,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(196,168,130,0.08)_1px,transparent_1px)] bg-[size:38px_38px]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(196,168,130,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(196,168,130,0.08)_1px,transparent_1px)] bg-size-[38px_38px]" />
 
                 {group.items.map((item) => {
                   const position = positions[item.id];

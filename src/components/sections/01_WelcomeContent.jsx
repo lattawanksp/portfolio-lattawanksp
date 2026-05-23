@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const quickLinks = [
-  { id: "about", label: "About" },
-  { id: "stack", label: "Stack" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  { id: "projects", label: "Project" },
+  { id: "playground", label: "Mini project" },
+  { id: "stack", label: "Tech stack" },
 ];
 
 const replyMessages = [
   <>
-    Hi ! Welcome to <span className="font-bold">my portfolio</span>
+    Hi ! Welcome to <span className="font-bold">my portfolio ✨</span>
   </>,
   <>
     My name is <span className="font-bold text-[#b87d4b]">Lin</span>, I&apos;m a{" "}
@@ -18,15 +17,17 @@ const replyMessages = [
   </>,
   <>
     Thank you for taking the time to visit. You can navigate through the{" "}
-    <span className="font-semibold decoration-[#b99f7b]">menu above ⭡</span> or
-    start with the{" "}
+    <span className="font-semibold decoration-[#b99f7b]">menu above ⭡</span>
+  </>,
+  <>
+    Or start by exploring{" "}
     <span className="font-semibold decoration-[#b99f7b]">
-      links down here ⭣
+      my project links down here ⭣
     </span>
   </>,
 ];
 
-const typingDurations = [1000, 1400, 2200, 1400];
+const typingDurations = [1000, 1400, 1800, 1400, 1400];
 
 function TypingBubble() {
   return (
@@ -183,10 +184,15 @@ function WelcomeContent({ onOpenSection, welcomeStarted, onStartWelcome }) {
             ) : null}
             {typingStep === 2 ? <TypingBubble /> : null}
 
+            {visibleReplies >= 4 ? (
+              <ReplyBubble>{replyMessages[3]}</ReplyBubble>
+            ) : null}
+            {typingStep === 3 ? <TypingBubble /> : null}
+
             {linksVisible ? (
               <LinksBubble onOpenSection={onOpenSection} />
             ) : null}
-            {typingStep === 3 ? <TypingBubble /> : null}
+            {typingStep === 4 ? <TypingBubble /> : null}
           </>
         )}
       </div>

@@ -3,6 +3,7 @@ import AboutContent from "./sections/02_AboutContent";
 import StackContent from "./sections/03_StackContent";
 import ProjectsContent from "./sections/04_ProjectsContent";
 import PlaygroundContent from "./sections/06_PlaygroundContent";
+import CertificateContent from "./sections/07_CertificateContent";
 import ContactContent from "./sections/05_ContactContent";
 
 const sectionComponents = {
@@ -11,6 +12,7 @@ const sectionComponents = {
   stack: StackContent,
   projects: ProjectsContent,
   playground: PlaygroundContent,
+  certificate: CertificateContent,
   contact: ContactContent,
 };
 
@@ -47,7 +49,9 @@ function SectionPanel({
         </div>
       ) : null}
 
-      <div className={`panel-scroll min-h-0 flex-1 overflow-y-auto ${hasHeader ? "mt-8" : ""}`}>
+      <div
+        className={`panel-scroll min-h-0 flex-1 overflow-y-auto ${hasHeader ? "mt-8" : ""}`}
+      >
         {ActiveComponent ? (
           <ActiveComponent
             onOpenSection={onOpenSection}

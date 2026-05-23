@@ -1,4 +1,5 @@
 import {
+  Award,
   BookOpen,
   Code2,
   FlaskConical,
@@ -20,9 +21,9 @@ export const sections = [
     label: "About",
     icon: BookOpen,
     title: "About Me",
-    eyebrow: "Story and direction",
+    eyebrow: "Summary",
     summary:
-      "I enjoy building clean interfaces, mapping messy ideas into clear flows, and polishing details until the experience feels natural.",
+      "I am an aspiring Full-Stack Developer. Before this, I worked in animation and had my own business for 7 years. I use my experience to understand users and build good things.",
   },
   {
     id: "stack",
@@ -30,26 +31,27 @@ export const sections = [
     icon: Code2,
     title: "Tech Stack",
     eyebrow: "Tools I work with",
-    summary:
-      "A modern web stack focused on React ecosystems, type-safe tooling, and practical backend integrations for real projects.",
   },
   {
     id: "projects",
     label: "Projects",
     icon: FolderKanban,
     title: "Featured Projects",
-    eyebrow: "Selected work",
-    summary:
-      "A flexible grid for product case studies, admin tools, client work, or experiments you want to highlight.",
+    eyebrow: "What I've Built",
   },
   {
     id: "playground",
-    label: "Playground",
+    label: "Mini project",
     icon: FlaskConical,
-    title: "Creative Playground",
+    title: "Mini Project",
     eyebrow: "Experiments and motion",
-    summary:
-      "A space for UI experiments, animation studies, interaction tests, and ideas that are still evolving.",
+  },
+  {
+    id: "certificate",
+    label: "Certificate",
+    icon: Award,
+    title: "Certificates",
+    eyebrow: "Learning milestones",
   },
   {
     id: "contact",
@@ -57,8 +59,6 @@ export const sections = [
     icon: Mail,
     title: "Let's Connect",
     eyebrow: "Open for collaboration",
-    summary:
-      "Place your email, socials, resume link, and a short invite so people know the best way to reach you.",
   },
 ];
 
@@ -103,7 +103,8 @@ export const stackItems = [
     name: "MongoDB",
     icon: "mongodb",
     category: "Backend",
-    description: "Flexible NoSQL database structure for product features in progress.",
+    description:
+      "Flexible NoSQL database structure for product features in progress.",
   },
   {
     name: "Figma",

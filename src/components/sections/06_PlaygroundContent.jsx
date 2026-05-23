@@ -19,14 +19,6 @@ const playgroundCards = [
 function PlaygroundContent() {
   return (
     <div className="space-y-6">
-      <div className="rounded-[1.75rem] border border-[#d8c0a0] bg-white/74 p-5 sm:p-6">
-        <p className="text-base leading-8 text-[#7d6751] sm:text-lg">
-          This section is reserved for playful builds, UI sketches, animation
-          tests, and visual ideas that do not fit into a strict project case
-          study yet.
-        </p>
-      </div>
-
       <div className="grid gap-4 lg:grid-cols-3">
         {playgroundCards.map((card) => (
           <article
