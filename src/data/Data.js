@@ -1,8 +1,6 @@
 import {
-  Award,
   BookOpen,
   Code2,
-  FlaskConical,
   FolderKanban,
   Globe,
   Hand,
@@ -36,29 +34,22 @@ export const sections = [
     id: "projects",
     label: "Projects",
     icon: FolderKanban,
-    title: "Featured Projects",
+    title: "My Projects",
     eyebrow: "What I've Built",
   },
-  {
-    id: "playground",
-    label: "Playground",
-    icon: FlaskConical,
-    title: "Playground",
-    eyebrow: "Learning & exploration",
-  },
-  {
-    id: "certificate",
-    label: "Certificate",
-    icon: Award,
-    title: "Certificates",
-    eyebrow: "Learning milestones",
-  },
+  // {
+  //   id: "certificate",
+  //   label: "Certificate",
+  //   icon: Award,
+  //   title: "Certificates",
+  //   eyebrow: "Learning milestones",
+  // },
   {
     id: "contact",
     label: "Contact",
     icon: Mail,
-    title: "Let's Connect",
-    eyebrow: "Open for collaboration",
+    title: "LET'S CONNECT",
+    eyebrow: "Available for opportunities",
   },
 ];
 
@@ -114,9 +105,7 @@ export const stackItems = [
   },
 ];
 
-export const projectCards = [];
-
-export const playgroundCards = [
+export const projectCards = [
   {
     title: "Colmar Academy - Landing Page",
     description:

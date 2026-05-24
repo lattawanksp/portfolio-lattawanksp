@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const quickLinks = [
   { id: "projects", label: "Project" },
-  { id: "playground", label: "Mini project" },
   { id: "stack", label: "Tech stack" },
 ];
 
@@ -77,11 +76,73 @@ function LinksBubble({ onOpenSection }) {
 }
 
 function WelcomeContent({ onOpenSection, welcomeStarted, onStartWelcome }) {
+  const containerRef = useRef(null);
+  const hiButtonRef = useRef(null);
   const [visibleReplies, setVisibleReplies] = useState(
     welcomeStarted ? replyMessages.length : 0,
   );
   const [typingStep, setTypingStep] = useState(-1);
   const [linksVisible, setLinksVisible] = useState(welcomeStarted);
+  const [canHover, setCanHover] = useState(false);
+  const [cursorHint, setCursorHint] = useState({
+    x: 0,
+    y: 0,
+    angle: 0,
+    visible: false,
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const updateCanHover = () => setCanHover(mediaQuery.matches);
+
+    updateCanHover();
+    mediaQuery.addEventListener("change", updateCanHover);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateCanHover);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!canHover || welcomeStarted) return undefined;
+
+    const container = containerRef.current;
+    const button = hiButtonRef.current;
+    if (!container || !button) return undefined;
+
+    const updateCursorHint = (event) => {
+      const containerBounds = container.getBoundingClientRect();
+      const buttonBounds = button.getBoundingClientRect();
+      const x = event.clientX - containerBounds.left;
+      const y = event.clientY - containerBounds.top;
+      const targetX =
+        buttonBounds.left - containerBounds.left + buttonBounds.width / 2;
+      const targetY =
+        buttonBounds.top - containerBounds.top + buttonBounds.height / 2;
+      const angle = (Math.atan2(targetY - y, targetX - x) * 180) / Math.PI;
+
+      setCursorHint({
+        x,
+        y,
+        angle,
+        visible: true,
+      });
+    };
+
+    const hideCursorHint = () => {
+      setCursorHint((current) => ({ ...current, visible: false }));
+    };
+
+    container.addEventListener("mousemove", updateCursorHint);
+    container.addEventListener("mouseleave", hideCursorHint);
+
+    return () => {
+      container.removeEventListener("mousemove", updateCursorHint);
+      container.removeEventListener("mouseleave", hideCursorHint);
+    };
+  }, [canHover, welcomeStarted]);
 
   useEffect(() => {
     if (!welcomeStarted) return undefined;
@@ -148,11 +209,33 @@ function WelcomeContent({ onOpenSection, welcomeStarted, onStartWelcome }) {
   };
 
   return (
-    <div className="flex h-full min-h-112 flex-col rounded-4xl bg-[linear-gradient(180deg,rgba(171,205,255,0.24),rgba(255,255,255,0.1))] p-6 sm:p-8">
+    <div
+      ref={containerRef}
+      className="relative flex h-full min-h-112 flex-col rounded-4xl bg-[linear-gradient(180deg,rgba(171,205,255,0.24),rgba(255,255,255,0.1))] p-6 sm:p-8"
+    >
+      {!welcomeStarted && canHover ? (
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute z-20 transition-opacity duration-150 ${cursorHint.visible ? "opacity-100" : "opacity-0"}`}
+          style={{
+            left: `${cursorHint.x}px`,
+            top: `${cursorHint.y}px`,
+            transform: "translate(22px, -28px)",
+          }}
+        >
+          <ArrowRight
+            className="h-12 w-12 text-white drop-shadow-[0_12px_20px_rgba(88,174,247,0.56)]"
+            style={{ transform: `rotate(${cursorHint.angle}deg)` }}
+            strokeWidth={2.4}
+          />
+        </div>
+      ) : null}
+
       <div className="flex-1 space-y-5 overflow-y-auto pr-2">
         {!welcomeStarted ? (
           <div className="flex h-full items-center justify-center">
             <button
+              ref={hiButtonRef}
               type="button"
               onClick={startChat}
               className="inline-flex items-center gap-3 rounded-full bg-[#58aef7] px-10 py-5 text-2xl font-semibold text-white shadow-[0_18px_28px_rgba(88,174,247,0.28)] transition hover:-translate-y-0.5 hover:brightness-105"

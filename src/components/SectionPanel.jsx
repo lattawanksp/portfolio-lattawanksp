@@ -2,7 +2,6 @@ import WelcomeContent from "./sections/01_WelcomeContent";
 import AboutContent from "./sections/02_AboutContent";
 import StackContent from "./sections/03_StackContent";
 import ProjectsContent from "./sections/04_ProjectsContent";
-import PlaygroundContent from "./sections/05_PlaygroundContent";
 import CertificateContent from "./sections/06_CertificateContent";
 import ContactContent from "./sections/07_ContactContent";
 
@@ -11,7 +10,6 @@ const sectionComponents = {
   about: AboutContent,
   stack: StackContent,
   projects: ProjectsContent,
-  playground: PlaygroundContent,
   certificate: CertificateContent,
   contact: ContactContent,
 };
@@ -28,7 +26,7 @@ function SectionPanel({
   const hasHeader = section.eyebrow || section.title || section.summary;
 
   return (
-    <div className="paper-panel relative flex h-full min-h-0 flex-col overflow-hidden p-6 sm:p-8">
+    <div className="paper-panel relative flex min-h-[70vh] flex-col overflow-hidden p-5 sm:p-6 lg:h-full lg:min-h-0 lg:p-8">
       {hasHeader ? (
         <div className="max-w-3xl space-y-4">
           {section.eyebrow ? (
@@ -50,7 +48,7 @@ function SectionPanel({
       ) : null}
 
       <div
-        className={`panel-scroll min-h-0 flex-1 overflow-y-auto ${hasHeader ? "mt-8" : ""}`}
+        className={`${hasHeader ? "mt-6 lg:mt-8" : ""} flex-1 overflow-visible lg:min-h-0 lg:overflow-y-auto lg:pr-2 panel-scroll`}
       >
         {ActiveComponent ? (
           <ActiveComponent

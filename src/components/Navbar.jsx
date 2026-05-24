@@ -1,7 +1,7 @@
-import { Home } from "lucide-react";
+// import { Home } from "lucide-react";
 import { sections } from "../data/Data";
 
-function Navbar({ activeSection, onOpenSection, onReset }) {
+function Navbar({ activeSection, onOpenSection }) {
   return (
     <header className="flex flex-wrap items-center justify-between gap-4 p-4">
       <nav className="flex flex-1 flex-wrap gap-2 rounded-2xl border border-[#e8d9c5] bg-[#fdf6ec] p-2">
@@ -22,14 +22,14 @@ function Navbar({ activeSection, onOpenSection, onReset }) {
         ))}
       </nav>
 
-      <button
+      {/* <button
         type="button"
         onClick={onReset}
         className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#d4c5b0] bg-[#fdf6ec] text-[#8b7355] transition hover:-translate-y-0.5"
         aria-label="Reset to home"
       >
         <Home className="h-5 w-5" />
-      </button>
+      </button> */}
     </header>
   );
 }

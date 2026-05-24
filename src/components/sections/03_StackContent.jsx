@@ -42,13 +42,6 @@ const stackGroups = [
       },
       { id: "html5", label: "HTML5", icon: siHtml5, color: "#E34F26" },
       { id: "css3", label: "CSS3", icon: siCss, color: "#1572B6" },
-      {
-        id: "sql",
-        label: "SQL",
-        icon: Database,
-        color: "#3B82F6",
-        isLucide: true,
-      },
     ],
   },
   {
@@ -93,6 +86,13 @@ const stackGroups = [
     title: "Database",
     icon: Database,
     items: [
+      {
+        id: "sql",
+        label: "SQL",
+        icon: Database,
+        color: "#3B82F6",
+        isLucide: true,
+      },
       { id: "mongodb", label: "MongoDB", icon: siMongodb, color: "#47A248" },
       {
         id: "postgresql",
@@ -104,7 +104,7 @@ const stackGroups = [
   },
   {
     id: "tools",
-    title: "Tools",
+    title: "Tools & DevOps",
     icon: SwatchBook,
     items: [
       { id: "git", label: "Git", icon: siGit, color: "#F05032" },
