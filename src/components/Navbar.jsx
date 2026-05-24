@@ -1,9 +1,15 @@
 // import { Home } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { sections } from "../data/Data";
 
-function Navbar({ activeSection, onOpenSection }) {
+function Navbar({
+  activeSection,
+  onOpenSection,
+  soundEnabled,
+  onToggleSound,
+}) {
   return (
-    <header className="flex flex-wrap items-center justify-center gap-4 p-4 lg:justify-between">
+    <header className="flex items-center justify-center gap-3 p-4 lg:justify-between">
       <nav className="flex w-full flex-wrap justify-center gap-1.5 rounded-2xl border border-[#e8d9c5] bg-[#fdf6ec] p-2 lg:flex-1 lg:justify-start lg:gap-2">
         {sections.map((section) => (
           <button
@@ -25,6 +31,20 @@ function Navbar({ activeSection, onOpenSection }) {
           </button>
         ))}
       </nav>
+
+      <button
+        type="button"
+        onClick={onToggleSound}
+        className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-[#8b7355] transition hover:-translate-y-0.5 hover:text-[#5c4a2a]"
+        aria-label={soundEnabled ? "Mute click sound" : "Enable click sound"}
+        title={soundEnabled ? "Mute click sound" : "Enable click sound"}
+      >
+        {soundEnabled ? (
+          <Volume2 className="h-5 w-5" />
+        ) : (
+          <VolumeX className="h-5 w-5" />
+        )}
+      </button>
 
       {/* <button
         type="button"
