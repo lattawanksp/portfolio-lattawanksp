@@ -1,12 +1,14 @@
 // import { Home } from "lucide-react";
-import { Volume2, VolumeX } from "lucide-react";
+import { Music4, Volume2, VolumeX, X } from "lucide-react";
 import { sections } from "../data/Data";
 
 function Navbar({
   activeSection,
   onOpenSection,
   soundEnabled,
+  musicEnabled,
   onToggleSound,
+  onToggleMusic,
 }) {
   return (
     <header className="flex items-center justify-center gap-3 p-4 lg:justify-between">
@@ -44,6 +46,21 @@ function Navbar({
         ) : (
           <VolumeX className="h-5 w-5" />
         )}
+      </button>
+
+      <button
+        type="button"
+        onClick={onToggleMusic}
+        className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center text-[#8b7355] transition hover:-translate-y-0.5 hover:text-[#5c4a2a]"
+        aria-label={musicEnabled ? "Pause background music" : "Play background music"}
+        title={musicEnabled ? "Pause background music" : "Play background music"}
+      >
+        <Music4 className="h-5 w-5" />
+        {!musicEnabled ? (
+          <span className="pointer-events-none absolute -right-0.5 -top-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#fdf6ec] text-[#8b7355]">
+            <X className="h-3 w-3" strokeWidth={2.4} />
+          </span>
+        ) : null}
       </button>
 
       {/* <button

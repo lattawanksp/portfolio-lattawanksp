@@ -15,8 +15,10 @@ function App() {
   const [activeSection, setActiveSection] = useState("welcome");
   const [welcomeStarted, setWelcomeStarted] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [musicEnabled, setMusicEnabled] = useState(false);
   const mainRef = useRef(null);
   const audioContextRef = useRef(null);
+  const musicAudioRef = useRef(null);
 
   const currentSection =
     sections.find((section) => section.id === activeSection) ?? null;
@@ -24,12 +26,12 @@ function App() {
   const openSection = (sectionId) =>
     startTransition(() => setActiveSection(sectionId));
 
-  const playClickSound = useCallback(() => {
-    if (!soundEnabled || typeof window === "undefined") return;
+  const ensureAudioContext = useCallback(() => {
+    if (typeof window === "undefined") return null;
 
     const AudioContextClass =
       window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return;
+    if (!AudioContextClass) return null;
 
     if (!audioContextRef.current) {
       audioContextRef.current = new AudioContextClass();
@@ -39,6 +41,15 @@ function App() {
     if (context.state === "suspended") {
       context.resume().catch(() => {});
     }
+
+    return context;
+  }, []);
+
+  const playClickSound = useCallback(() => {
+    if (!soundEnabled || typeof window === "undefined") return;
+
+    const context = ensureAudioContext();
+    if (!context) return;
 
     const now = context.currentTime;
     const bufferSize = Math.floor(context.sampleRate * 0.035);
@@ -84,15 +95,13 @@ function App() {
     noiseSource.stop(now + 0.035);
     bodyOscillator.start(now);
     bodyOscillator.stop(now + 0.05);
-  }, [soundEnabled]);
+  }, [ensureAudioContext, soundEnabled]);
 
   useEffect(() => {
     const main = mainRef.current;
     if (!main) return undefined;
 
     const handleClickSound = (event) => {
-      if (!soundEnabled) return;
-
       const control = event.target.closest("button, a");
       if (!control) return;
 
@@ -110,10 +119,37 @@ function App() {
     return () => {
       main.removeEventListener("click", handleClickSound);
     };
-  }, [playClickSound, soundEnabled]);
+  }, [playClickSound]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    if (!musicAudioRef.current) {
+      const audio = new Audio("/audio/beautiful-garden.mp3");
+      audio.loop = true;
+      audio.volume = 0.07;
+      musicAudioRef.current = audio;
+    }
+
+    const audio = musicAudioRef.current;
+
+    if (musicEnabled) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    return undefined;
+  }, [musicEnabled]);
 
   useEffect(
     () => () => {
+      if (musicAudioRef.current) {
+        musicAudioRef.current.pause();
+        musicAudioRef.current.src = "";
+        musicAudioRef.current = null;
+      }
       if (audioContextRef.current && audioContextRef.current.state !== "closed") {
         audioContextRef.current.close().catch(() => {});
       }
@@ -137,7 +173,9 @@ function App() {
             activeSection={activeSection}
             onOpenSection={openSection}
             soundEnabled={soundEnabled}
+            musicEnabled={musicEnabled}
             onToggleSound={() => setSoundEnabled((current) => !current)}
+            onToggleMusic={() => setMusicEnabled((current) => !current)}
           />
 
           <div className="flex-1 lg:min-h-0">
