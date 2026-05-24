@@ -11,6 +11,8 @@ function Navbar({ activeSection, onOpenSection }) {
             type="button"
             onClick={() => onOpenSection(section.id)}
             className={`inline-flex items-center gap-1 rounded-2xl border px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition ${
+              section.id === "lets-play" ? "ml-auto" : ""
+            } ${
               section.id === activeSection
                 ? "border-[#c4a882] bg-[#e8d9c5] text-[#5c4a2a]"
                 : "border-[#d4c5b0] bg-[#fdf6ec] text-[#8b7355] hover:-translate-y-0.5 hover:text-[#5c4a2a]"

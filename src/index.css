@@ -48,6 +48,15 @@ img {
   height: 100%;
 }
 
+@media (min-width: 1024px) {
+  .app-shell {
+    height: 125%;
+    width: 125%;
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
 .paper-panel {
   background: linear-gradient(180deg, var(--paper-strong), var(--paper));
   border: 1.5px solid color-mix(in srgb, var(--line) 88%, white 12%);

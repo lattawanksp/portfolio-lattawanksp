@@ -2,6 +2,7 @@ import {
   BookOpen,
   Code2,
   FolderKanban,
+  Gamepad2,
   Globe,
   Hand,
   Link2,
@@ -50,6 +51,15 @@ export const sections = [
     icon: Mail,
     title: "LET'S CONNECT",
     eyebrow: "Available for opportunities",
+  },
+  {
+    id: "lets-play",
+    label: "Let's Play",
+    icon: Gamepad2,
+    title: "Let's Play",
+    eyebrow: "Playful APIs and experiments",
+    summary:
+      "Try a tiny interactive playground powered by RoboHash. Type any word and generate a robot, monster, or cat avatar instantly.",
   },
 ];
 
@@ -118,7 +128,11 @@ export const projectCards = [
 ];
 
 export const profileLinks = [
-  { label: "GitHub", href: "https://github.com/yourname", icon: Link2 },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourname", icon: Globe },
-  { label: "Email", href: "mailto:youremail@email.com", icon: Mail },
+  { label: "GitHub", href: "https://github.com/lattawanksp", icon: Link2 },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/lattawan-ksp/",
+    icon: Globe,
+  },
+  { label: "Email", href: "mailto:lattawan.ksp@gmail.com", icon: Mail },
 ];

@@ -26,8 +26,8 @@ function FooterBar() {
         ))}
       </div>
 
-      <div className="rounded-full border border-[#b99f7b] bg-white/75 px-4 py-2 text-xs uppercase tracking-[0.2em] text-[#8d6b49]">
-        React + Tailwind
+      <div className="px-1 text-xs uppercase tracking-[0.2em] text-[#8d6b49]">
+        lattawanksp@2026
       </div>
     </footer>
   );

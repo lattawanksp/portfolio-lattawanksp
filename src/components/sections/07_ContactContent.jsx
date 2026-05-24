@@ -25,7 +25,8 @@ const contactCards = [
   },
 ];
 
-const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+const formspreeEndpoint =
+  import.meta.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/mgoqzggw";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validateField(name, value) {
