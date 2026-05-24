@@ -39,7 +39,8 @@ function validateField(name, value) {
 
   if (name === "email") {
     if (!trimmedValue) return "Please enter your email address.";
-    if (!emailPattern.test(trimmedValue)) return "Please enter a valid email address.";
+    if (!emailPattern.test(trimmedValue))
+      return "Please enter a valid email address.";
     return "";
   }
 
@@ -152,7 +153,8 @@ function ContactContent() {
     } catch {
       setSubmitStatus({
         type: "error",
-        message: "Something went wrong while sending your message. Please try again.",
+        message:
+          "Something went wrong while sending your message. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -183,25 +185,18 @@ function ContactContent() {
           );
 
           return card.href ? (
-            <a
-              key={card.title}
-              href={card.href}
-              className={cardClasses}
-            >
+            <a key={card.title} href={card.href} className={cardClasses}>
               {cardContent}
             </a>
           ) : (
-            <div
-              key={card.title}
-              className={cardClasses}
-            >
+            <div key={card.title} className={cardClasses}>
               {cardContent}
             </div>
           );
         })}
       </div>
 
-      <div className="rounded-[2rem] border border-(--line) bg-[linear-gradient(180deg,rgba(236,223,198,0.76),rgba(214,195,168,0.82))] p-6 shadow-[0_20px_36px_rgba(120,92,54,0.1)] sm:p-8">
+      <div className="rounded-4xl border border-(--line) bg-[linear-gradient(180deg,rgba(236,223,198,0.76),rgba(214,195,168,0.82))] p-6 shadow-[0_20px_36px_rgba(120,92,54,0.1)] sm:p-8">
         <div className="rounded-[1.7rem] bg-[linear-gradient(180deg,rgba(255,252,246,0.95),rgba(249,240,224,0.92))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] sm:p-8">
           <h3 className="text-center text-3xl font-semibold text-[#4f3b27] sm:text-[2.6rem]">
             Contact Me
@@ -215,7 +210,7 @@ function ContactContent() {
               value={formValues.name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full rounded-[1rem] border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
+              className={`w-full rounded-2xl border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
                 formErrors.name
                   ? "border-[#d16a6a] focus:border-[#d16a6a] focus:ring-[#f8d7d7]"
                   : "border-[#d5c3a5] focus:border-[#8ec5ff] focus:ring-[#dfeefe]"
@@ -231,7 +226,7 @@ function ContactContent() {
               value={formValues.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full rounded-[1rem] border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
+              className={`w-full rounded-2xl border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
                 formErrors.email
                   ? "border-[#d16a6a] focus:border-[#d16a6a] focus:ring-[#f8d7d7]"
                   : "border-[#d5c3a5] focus:border-[#8ec5ff] focus:ring-[#dfeefe]"
@@ -247,19 +242,21 @@ function ContactContent() {
               value={formValues.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full resize-none rounded-[1rem] border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
+              className={`w-full resize-none rounded-2xl border bg-white/88 px-4 py-3 text-[#4f3b27] outline-none transition placeholder:text-[#a58d73] focus:ring-2 ${
                 formErrors.message
                   ? "border-[#d16a6a] focus:border-[#d16a6a] focus:ring-[#f8d7d7]"
                   : "border-[#d5c3a5] focus:border-[#8ec5ff] focus:ring-[#dfeefe]"
               }`}
             />
             {formErrors.message ? (
-              <p className="px-1 text-sm text-[#b35a5a]">{formErrors.message}</p>
+              <p className="px-1 text-sm text-[#b35a5a]">
+                {formErrors.message}
+              </p>
             ) : null}
 
             {submitStatus.message ? (
               <p
-                className={`rounded-[1rem] border px-4 py-3 text-sm ${
+                className={`rounded-2xl border px-4 py-3 text-sm ${
                   submitStatus.type === "success"
                     ? "border-[#b6c596] bg-[#f3f8e8] text-[#60703d]"
                     : "border-[#e2b2b2] bg-[#fff1f1] text-[#a55757]"
@@ -273,7 +270,7 @@ function ContactContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-[1rem] border border-[#b99f7b] bg-[#98a16d] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-65"
+                className="rounded-2xl border border-[#b99f7b] bg-[#98a16d] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-65"
               >
                 {isSubmitting ? "Sending..." : "Submit"}
               </button>

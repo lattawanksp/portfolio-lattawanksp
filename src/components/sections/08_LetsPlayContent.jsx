@@ -12,7 +12,8 @@ function LetsPlayContent() {
   const [activeSet, setActiveSet] = useState("set1");
   const [copied, setCopied] = useState(false);
 
-  const currentSet = avatarSets.find((set) => set.id === activeSet) ?? avatarSets[0];
+  const currentSet =
+    avatarSets.find((set) => set.id === activeSet) ?? avatarSets[0];
   const safeKeyword = keyword.trim() || "hello";
 
   const imageUrl = useMemo(() => {
@@ -32,7 +33,7 @@ function LetsPlayContent() {
   };
 
   return (
-    <div className="grid gap-3 lg:h-full lg:min-h-0 lg:grid-cols-[0.88fr_1.12fr]">
+    <div className="grid gap-3 lg:h-full lg:min-h-0 lg:grid-cols-[0.92fr_1.08fr]">
       <div className="rounded-[1.45rem] border border-(--line) bg-[linear-gradient(180deg,rgba(255,252,246,0.98),rgba(249,240,224,0.92))] p-4 shadow-[0_14px_24px_rgba(120,92,54,0.08)] lg:h-full">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#d5c3a5] bg-[#f5ebd8] text-[#98a16d]">
@@ -43,7 +44,8 @@ function LetsPlayContent() {
               RoboHash Generator
             </h3>
             <p className="mt-1 text-[0.86rem] leading-5 text-[#7d6751]">
-              Type any word and RoboHash will always generate the same avatar for it.
+              Type any word and RoboHash will always generate the same avatar
+              for it.
             </p>
           </div>
         </div>
@@ -113,19 +115,19 @@ function LetsPlayContent() {
             </button>
           </div>
 
-          <div className="mt-3 rounded-[1.1rem] border border-[#dfcdb1] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.72),transparent_35%),linear-gradient(180deg,#f7efdf,#fffaf2)] p-3">
+          <div className="mt-3 flex justify-center rounded-[1.1rem] border border-[#dfcdb1] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.72),transparent_35%),linear-gradient(180deg,#f7efdf,#fffaf2)] p-2.5">
             <img
               src={imageUrl}
               alt={`${safeKeyword} generated avatar`}
-              className="mx-auto aspect-square w-full max-w-[200px] rounded-[1rem] object-contain xl:max-w-[215px]"
+              className="aspect-square w-fit max-w-37.5 rounded-[0.9rem] object-contain lg:max-w-41.25 xl:max-w-45"
             />
           </div>
 
-          <div className="mt-3 rounded-[0.95rem] border border-[#e1d0b4] bg-white/72 px-3.5 py-2.5">
+          <div className="mt-2.5 rounded-[0.95rem] border border-[#e1d0b4] bg-white/72 px-3 py-2">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#8d6b49]">
               Endpoint
             </p>
-            <p className="panel-scroll mt-1.5 overflow-x-auto whitespace-nowrap text-[0.76rem] leading-5 text-[#6b5843]">
+            <p className="panel-scroll mt-1 overflow-x-auto whitespace-nowrap text-[0.74rem] leading-5 text-[#6b5843]">
               {imageUrl}
             </p>
           </div>

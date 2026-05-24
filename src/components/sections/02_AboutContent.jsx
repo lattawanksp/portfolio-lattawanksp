@@ -198,7 +198,7 @@ function AboutContent() {
           className="grid gap-8 pb-8 lg:grid-cols-[14rem_minmax(0,1fr)]"
         >
           <aside className="hidden lg:block">
-            <div className="sticky top-0 rounded-[1.5rem] border border-[#eadcc7] bg-white/52 p-5 backdrop-blur">
+            <div className="sticky top-0 rounded-3xl border border-[#eadcc7] bg-white/52 p-5 backdrop-blur">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#8d6b49]">
                 Chapters
               </p>
@@ -281,7 +281,7 @@ function AboutContent() {
                             key={entry.title}
                             className="group relative transition-all duration-300"
                           >
-                            <span className="absolute -left-[2.15rem] top-2 h-3.5 w-3.5 rounded-full border border-[#cfb190] bg-[#fffaf2] transition-colors duration-300 group-hover:border-[#8ec5ff] group-hover:bg-[#eef7ff]" />
+                            <span className="absolute left-[-2.15rem] top-2 h-3.5 w-3.5 rounded-full border border-[#cfb190] bg-[#fffaf2] transition-colors duration-300 group-hover:border-[#8ec5ff] group-hover:bg-[#eef7ff]" />
                             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#9f7f5a]">
                               {entry.year}
                             </p>
@@ -337,7 +337,7 @@ function AboutContent() {
 
                   {index < aboutSections.length - 1 ? (
                     <div className="my-5 flex items-center gap-4 sm:my-6">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#d9c0a0] to-[#e8d4b8]" />
+                      <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#d9c0a0] to-[#e8d4b8]" />
                       <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e5d4bd] bg-white/70 text-[#b09068] shadow-[0_6px_14px_rgba(154,127,92,0.06)]">
                         {index % 2 === 0 ? (
                           <Sparkles className="h-4 w-4" />
@@ -345,7 +345,7 @@ function AboutContent() {
                           <Sprout className="h-4 w-4" />
                         )}
                       </div>
-                      <div className="h-px flex-1 bg-gradient-to-r from-[#e8d4b8] via-[#d9c0a0] to-transparent" />
+                      <div className="h-px flex-1 bg-linear-to-r from-[#e8d4b8] via-[#d9c0a0] to-transparent" />
                     </div>
                   ) : null}
                 </div>

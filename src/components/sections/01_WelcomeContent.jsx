@@ -115,12 +115,16 @@ function WelcomeContent({ onOpenSection, welcomeStarted, onStartWelcome }) {
     const updateCursorHint = (event) => {
       const containerBounds = container.getBoundingClientRect();
       const buttonBounds = button.getBoundingClientRect();
-      const x = event.clientX - containerBounds.left;
-      const y = event.clientY - containerBounds.top;
+      const scaleX = containerBounds.width / container.offsetWidth || 1;
+      const scaleY = containerBounds.height / container.offsetHeight || 1;
+      const x = (event.clientX - containerBounds.left) / scaleX;
+      const y = (event.clientY - containerBounds.top) / scaleY;
       const targetX =
-        buttonBounds.left - containerBounds.left + buttonBounds.width / 2;
+        (buttonBounds.left - containerBounds.left + buttonBounds.width / 2) /
+        scaleX;
       const targetY =
-        buttonBounds.top - containerBounds.top + buttonBounds.height / 2;
+        (buttonBounds.top - containerBounds.top + buttonBounds.height / 2) /
+        scaleY;
       const angle = (Math.atan2(targetY - y, targetX - x) * 180) / Math.PI;
 
       setCursorHint({

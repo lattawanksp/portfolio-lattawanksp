@@ -36,7 +36,7 @@ function ProfilePreviewCard() {
           <h2 className="wrap-break-words text-center text-[1.35rem] font-semibold leading-tight text-[#4f3b27] sm:text-[1.55rem] lg:text-[1.8rem]">
             lattawanksp
           </h2>
-          <p className="mt-2 break-words text-center text-[1.2rem] font-bold leading-6 text-[#4f3b27] sm:text-[1.1rem] lg:text-[1.2rem]">
+          <p className="mt-2 wrap-break-words text-center text-[1.2rem] font-bold leading-6 text-[#4f3b27] sm:text-[1.1rem] lg:text-[1.2rem]">
             {" "}
             Junior Software Developer
             <br />

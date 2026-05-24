@@ -49,7 +49,7 @@ export const sections = [
     id: "contact",
     label: "Contact",
     icon: Mail,
-    title: "LET'S CONNECT",
+    title: "Let's Connect",
     eyebrow: "Available for opportunities",
   },
   {

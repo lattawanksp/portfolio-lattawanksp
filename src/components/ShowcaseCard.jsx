@@ -27,7 +27,7 @@ function ShowcaseCard({ item, placeholder = false }) {
     <article className="flex h-full flex-col rounded-[1.75rem] border border-(--line) bg-white/75 p-4 shadow-[0_16px_28px_rgba(120,92,54,0.08)]">
       <div className="overflow-hidden rounded-[1.45rem] border border-(--line) bg-[#f7efdf]">
         {placeholder || !imageSrc ? (
-          <div className="flex min-h-[260px] items-center justify-center bg-[linear-gradient(135deg,#e8dcc8,#f8f0e3)] p-5">
+          <div className="flex min-h-65 items-center justify-center bg-[linear-gradient(135deg,#e8dcc8,#f8f0e3)] p-5">
             <div className="w-full space-y-4">
               <div className="h-7 w-2/3 rounded-full bg-white/70" />
               <div className="h-32 rounded-[1.1rem] bg-white/55" />
@@ -38,7 +38,7 @@ function ShowcaseCard({ item, placeholder = false }) {
           <img
             src={imageSrc}
             alt={title}
-            className="h-full min-h-[260px] w-full object-cover object-top"
+            className="h-full min-h-65 w-full object-cover object-top"
           />
         )}
       </div>
@@ -75,7 +75,7 @@ function ShowcaseCard({ item, placeholder = false }) {
                 src="/github-alt-svgrepo-com.svg"
                 alt=""
                 aria-hidden="true"
-                className="h-4 w-4 sepia saturate-[0.55] hue-rotate-[338deg] brightness-[0.55]"
+                className="h-4 w-4 sepia saturate-[0.55] hue-rotate-388 brightness-[0.55]"
               />
             </a>
           ) : (

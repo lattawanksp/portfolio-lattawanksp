@@ -23,7 +23,7 @@ function CertificateContent() {
         {certificateItems.map((item) => (
           <article
             key={item.title}
-            className="rounded-[1.5rem] border border-[#d8c0a0] bg-[#fffaf2] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8ec5ff] hover:bg-[#f9f0de] hover:shadow-[0_16px_28px_rgba(120,92,54,0.1)]"
+            className="rounded-3xl border border-[#d8c0a0] bg-[#fffaf2] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8ec5ff] hover:bg-[#f9f0de] hover:shadow-[0_16px_28px_rgba(120,92,54,0.1)]"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8d6b49]">
               {item.issuer}
